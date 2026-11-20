@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Bridge | Corporate Training &amp; Skill Development</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #f4f7fb;
+      color: #243b53;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 26px 5%;
+      background: #fff;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #123c69;
+      font-size: 2.3rem;
+    }
+
+    .tagline { margin: 4px; color: #52677d; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 12px;
+      background: #123c69;
+      text-align: center;
+    }
+
+    .nav a {
+      margin: 0 12px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav a:hover { color: #b8e0ff; }
+
+    main {
+      width: min(1100px, 94%);
+      margin: 24px auto;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 280px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      background: linear-gradient(115deg, #123c69, #087e8b);
+      border-radius: 10px;
+      place-items: center;
+    }
+
+    .hero h2 {
+      max-width: 700px;
+      margin: 20px;
+      color: #fff;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      text-align: center;
+    }
+
+    .section {
+      margin: 24px 0;
+      padding: 22px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #102a4310;
+    }
+
+    .section h2 {
+      color: #123c69;
+      text-align: center;
+    }
+
+    .cta, .card {
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #087e8b;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .cta:hover, .cta:focus-visible {
+      transform: translateY(-3px) scale(1.03);
+      background: #066873;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      overflow: hidden;
+      background: #f6f8fb;
+      border-radius: 8px;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px #102a4325;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .card p { margin: 10px; padding: 0 4px; }
+
+    .animation-demo {
+      padding: 20px;
+      background: #eef3f8;
+      border-radius: 8px;
+    }
+
+    .track {
+      position: relative;
+      height: 64px;
+      overflow: hidden;
+      border-bottom: 2px solid #9fb3c8;
+    }
+
+    .moving-title {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 220px;
+      margin: 0;
+      color: #087e8b;
+      font-size: 1.35rem;
+      white-space: nowrap;
+      animation: travel 2s ease-in-out 3 alternate;
+    }
+
+    .log {
+      max-width: 500px;
+      margin: 14px auto 0;
+      text-align: left;
+    }
+
+    .log li { margin: 3px 0; }
+
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .resource {
+      padding: 14px;
+      background: #f6f8fb;
+      border-radius: 8px;
+    }
+
+    .resource iframe,
+    .resource video {
+      display: block;
+      width: 100%;
+      height: 260px;
+      border: 0;
+    }
+
+    .fixed-contact {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 30;
+      padding: 11px 15px;
+      background: #087e8b;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    @keyframes travel {
+      from { left: 0; }
+      to { left: calc(100% - 220px); }
+    }
+
+    @media (max-width: 800px) {
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .gallery, .resources { grid-template-columns: 1fr; }
+      .section { padding: 16px; }
+      .nav a { margin: 0 6px; font-size: .9rem; }
+      .hero { min-height: 220px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Train Bridge</h1>
+    <p class="tagline">Corporate Training and Skill Development</p>
+  </header>
+
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#animation">Animation Demo</a>
+    <a href="#resources">Resources</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="about">
+      <h2>Learn new skills. Build stronger teams. Move forward.</h2>
+    </section>
+
+    <section class="section">
+      <h2>Welcome to Train Bridge</h2>
+      <p>Our corporate training programs help people develop practical skills, strengthen teams, and grow their careers.</p>
+      <a class="cta" href="#resources">Explore training</a>
+    </section>
+
+    <section class="section" id="gallery">
+      <h2>Learning and Development Gallery</h2>
+      <div class="gallery">
+        <article class="card">
+          <img src="gallery-1.png" alt="Analyzing business market data">
+          <p>Data and decision-making</p>
+        </article>
+        <article class="card">
+          <img src="gallery-2.png" alt="Reviewing business charts">
+          <p>Business analysis</p>
+        </article>
+        <article class="card">
+          <img src="gallery-3.png" alt="City skyline and market chart">
+          <p>Understanding markets</p>
+        </article>
+        <article class="card">
+          <img src="gallery-4.png" alt="Financial growth concepts">
+          <p>Planning for growth</p>
+        </article>
+        <article class="card">
+          <img src="gallery-5.png" alt="Digital banking technology">
+          <p>Digital skills</p>
+        </article>
+        <article class="card">
+          <img src="gallery-6.png" alt="Team reviewing financial charts">
+          <p>Practical workshops</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="animation">
+      <h2>CSS Animation: Watch Me Move</h2>
+      <p>The heading moves across the track three times. The event log records when the animation starts, repeats, and ends.</p>
+      <div class="animation-demo">
+        <div class="track">
+          <h3 class="moving-title" id="movingTitle">Train Bridge</h3>
+        </div>
+        <ul class="log" id="eventLog" aria-live="polite"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <h2>Training Resources</h2>
+      <div class="resources">
+        <article class="resource">
+          <h3>Training Program Guide</h3>
+          <iframe
+            src="https://drive.google.com/file/d/YOUR_GOOGLE_DRIVE_FILE_ID/preview"
+            title="Train Bridge training guide"
+            loading="lazy">
+          </iframe>
+        </article>
+
+        <article class="resource">
+          <h3>YouTube Training Video</h3>
+          <iframe
+            src="https://www.youtube.com/embed/6dFnpz_AEyA"
+            title="Train Bridge training video"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </article>
+
+        <article class="resource">
+          <h3>Company Introduction Video</h3>
+          <video controls poster="video-thumbnail.jpg">
+            <source src="intro-video.mp4" type="video/mp4">
+            <source src="intro-video.webm" type="video/webm">
+            Your browser does not support video.
+          </video>
+        </article>
+
+        <article class="resource">
+          <h3>Training Audio</h3>
+          <audio controls>
+            <source src="audio-intro.mp3" type="audio/mpeg">
+            <source src="audio-intro.ogg" type="audio/ogg">
+            Your browser does not support audio.
+          </audio>
+        </article>
+
+        <article class="resource">
+          <h3>Our Location</h3>
+          <iframe
+            src="https://www.google.com/maps?q=Coimbatore&amp;output=embed"
+            title="Train Bridge location in Coimbatore"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <a class="fixed-contact" href="#resources">Explore programs</a>
+
+  <script>
+    const movingTitle = document.getElementById("movingTitle");
+    const eventLog = document.getElementById("eventLog");
+
+    function logAnimation(message) {
+      const item = document.createElement("li");
+      item.textContent = message;
+      eventLog.appendChild(item);
+    }
+
+    movingTitle.addEventListener("animationstart", event => {
+      logAnimation("Started: elapsed time is " + event.elapsedTime + "s");
+    });
+
+    movingTitle.addEventListener("animationiteration", event => {
+      logAnimation("New loop started at " + event.elapsedTime + "s");
+    });
+
+    movingTitle.addEventListener("animationend", event => {
+      logAnimation("Ended: elapsed time is " + event.elapsedTime + "s");
+    });
+  </script>
+</body>
+</html>
